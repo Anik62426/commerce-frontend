@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function NewCollection() {
   const [new_collection, setnew_collection] = useState([]);
   useEffect(() => {
-    fetch("https://e-com-uryk.onrender.com/newcollections")
+    fetch("https://ecommerce-backend-27wa.onrender.com/newcollections")
       .then((response) => response.json())
       .then((data) => setnew_collection(data));
   }, []);

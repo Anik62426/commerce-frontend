@@ -13,7 +13,7 @@ const Product = () => {
   const {productId} = useParams();
   const[all_products,setAllProducts]= useState([]);
   useEffect(()=>{
-   fetch('https://e-com-uryk.onrender.com/popularbyid', {
+   fetch('https://ecommerce-backend-27wa.onrender.com/popularbyid', {
    method: 'POST',
    body: JSON.stringify({
      id: productId,
