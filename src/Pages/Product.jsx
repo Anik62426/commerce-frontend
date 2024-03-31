@@ -34,7 +34,7 @@ const Product = () => {
       {all_products.map((object) => (
         <div key={object.id}>
           <div className=' flex items-center text-base text-gray-800 py-8 pl-10 gap-2 '>
-           HOME / SHOP / {object.category} / {object.name}
+           Home / Shop / {object.category} / {object.name}
            </div>
            <div className="bg-white">
         <div className=" grid grid-cols-2">
