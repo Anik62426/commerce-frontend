@@ -2,9 +2,8 @@ import React from 'react'
 import { useContext } from 'react'
 import { ShopContext } from '../Context/ShopContext'
 import { useParams } from 'react-router-dom'
-import Breadcrum from '../Component/Breadcrum/Breadcrum'
-import ProductDisplay from '../Component/ProductDisplay/ProductDisplay'
 import Footer from '../Component/Footer/Footer'
+import { FaStar } from "react-icons/fa"
 import { useState,useEffect } from 'react'
 const Product = () => {
   // const {all_product}= useContext(ShopContext);
@@ -109,79 +108,15 @@ const Product = () => {
               <p className="text-green-600 font-bold">inclusive of all taxes</p>
 
               {/* <!-- Reviews --> */}
-              <div className="mt-3  ">
-                <h3 className="sr-only">Reviews</h3>
-                <div className="flex items-center">
-                  {/* review star icon */}
-                  <div className="flex items-center">
-                    <p className="text-lg px-1 border-gray-600 rounded border-2">4.3</p>
-                    {/* <!-- Active: "text-gray-900", Default: "text-gray-200" --> */}
-                    <svg
-                      className="text-gray-900 h-5 w-5 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <svg
-                      className="text-gray-900 h-5 w-5 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <svg
-                      className="text-gray-900 h-5 w-5 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <svg
-                      className="text-gray-900 h-5 w-5 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <svg
-                      className="text-gray-200 h-5 w-5 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <p className="sr-only">4 out of 5 stars</p>
-                  <a href="#" className="ml-3 border-2 p- text-sm font-medium text-grey-500">
+              <div className="mt-3 flex ">
+                <FaStar size={40} color='#ffc107'/>
+                <FaStar size={40} color='#ffc107'/>
+                <FaStar size={40} color='#ffc107'/>
+                <FaStar size={40} color='#ffc107'/>
+                <FaStar size={40} color='#e4e5e9'/>
+                <a href="#" className="ml-3 border-2 mt-2 text-lg font-medium text-grey-500">
                     117 reviews
                   </a>
-                </div>
               </div>
 
               
