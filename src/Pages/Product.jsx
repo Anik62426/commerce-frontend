@@ -25,7 +25,7 @@ const Product = () => {
  .then((data)=>{setAllProducts(data)})
   },[])
   console.log(all_products)
-  console.log(productId)
+  // console.log(productId)
   // console.log(all_products[0].name);
   // const product = all_product.find((e)=> e.id ===Number(productId));
   return (
@@ -87,9 +87,6 @@ const Product = () => {
           </div>
           {/* <!-- Product info --> */}
           <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:max-w-xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-10">
-            <div className="lg:col-span-1 lg:border-r lg:border-gray-200 lg:pr-8">
-             
-            </div>
 
             {/* <!-- Options --> */}
             <div className="mt-4 lg:row-span-1 lg:mt-0">
@@ -106,14 +103,20 @@ const Product = () => {
                 </p>
               </div>
               <p className="text-green-600 font-bold">inclusive of all taxes</p>
-
               {/* <!-- Reviews --> */}
               <div className="mt-3 flex ">
-                <FaStar size={40} color='#ffc107'/>
-                <FaStar size={40} color='#ffc107'/>
-                <FaStar size={40} color='#ffc107'/>
-                <FaStar size={40} color='#ffc107'/>
-                <FaStar size={40} color='#e4e5e9'/>
+                <div className='flex'>
+                       <FaStar size={40}   
+                       color={object.rating >= 1 ? '#ffc107' : '#ebe8df'} />  
+                       <FaStar size={40}   
+                       color={object.rating >= 2 ? '#ffc107' : '#ebe8df'} />
+                       <FaStar size={40}   
+                       color={object.rating >= 3 ? '#ffc107' : '#ebe8df'} />
+                       <FaStar size={40}   
+                       color={object.rating >= 4 ? '#ffc107' : '#ebe8df'} />
+                       <FaStar size={40}   
+                       color={object.rating >= 5 ? '#ffc107' : '#ebe8df'} /> 
+                </div>
                 <a href="#" className="ml-3 border-2 mt-2 text-lg font-medium text-grey-500">
                     117 reviews
                   </a>
@@ -128,7 +131,89 @@ const Product = () => {
                 >
                   Add to bag
                 </button>
-                  <div className="mt-5 ml-4">
+
+                
+<div class="mx-auto flex-start bg-white rounded-lg  px-4 py-4  mt-2 max-w-sm ">
+   <div class="mb-1 tracking-wide px-4 py-4" >
+      <h2 class="text-gray-800 font-semibold mt-1">67 Users reviews</h2>
+      <div class="border-b -mx-8 px-8 pb-3">
+         <div class="flex items-center mt-1">
+            <div class=" w-1/5 text-indigo-500 tracking-tighter">
+               <span>5 star</span>
+            </div>
+            <div class="w-3/5">
+               <div class="bg-gray-300 w-full rounded-lg h-2">
+                  <div class=" w-7/12 bg-indigo-600 rounded-lg h-2"></div>
+               </div>
+            </div>
+            <div class="w-1/5 text-gray-700 pl-3">
+               <span class="text-sm">45%</span>
+            </div>
+         </div>
+         <div class="flex items-center mt-1">
+            <div class="w-1/5 text-indigo-500 tracking-tighter">
+               <span>4 star</span>
+            </div>
+            <div class="w-3/5">
+               <div class="bg-gray-300 w-full rounded-lg h-2">
+                  <div class="w-1/5 bg-indigo-600 rounded-lg h-2"></div>
+               </div>
+            </div>
+            <div class="w-1/5 text-gray-700 pl-3">
+               <span class="text-sm">17%</span>
+            </div>
+         </div>
+         <div class="flex items-center mt-1">
+            <div class="w-1/5 text-indigo-500 tracking-tighter">
+               <span>3 star</span>
+            </div>
+            <div class="w-3/5">
+               <div class="bg-gray-300 w-full rounded-lg h-2">
+                  <div class=" w-3/12 bg-indigo-600 rounded-lg h-2"></div>
+               </div>
+            </div>
+            <div class="w-1/5 text-gray-700 pl-3">
+               <span class="text-sm">19%</span>
+            </div>
+         </div>
+         <div class="flex items-center mt-1">
+            <div class=" w-1/5 text-indigo-500 tracking-tighter">
+               <span>2 star</span>
+            </div>
+            <div class="w-3/5">
+               <div class="bg-gray-300 w-full rounded-lg h-2">
+                  <div class=" w-1/5 bg-indigo-600 rounded-lg h-2"></div>
+               </div>
+            </div>
+            <div class="w-1/5 text-gray-700 pl-3">
+               <span class="text-sm">8%</span>
+            </div>
+         </div>
+         <div class="flex items-center mt-1">
+            <div class="w-1/5 text-indigo-500 tracking-tighter">
+               <span>1 star</span>
+            </div>
+            <div class="w-3/5">
+               <div class="bg-gray-300 w-full rounded-lg h-2">
+                  <div class=" w-2/12 bg-indigo-600 rounded-lg h-2"></div>
+               </div>
+            </div>
+            <div class="w-1/5 text-gray-700 pl-3">
+               <span class="text-sm">5%</span>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="w-full px-4">
+      <h3 class="font-medium tracking-tight">Review this item</h3>
+      <p class="text-gray-700 text-sm py-1">
+         give your opinion about this item.
+      </p>
+      <button class="bg-gray-100 border border-gray-400 px-3 py-1 rounded  text-gray-800 mt-2">write a review</button>
+   </div>
+</div>
+
+                  <div className="mt-5 ml-4 ">
                 <h3 className="text-base font-bold text-gray-900">Highlights</h3>
                 <div className="">
                   <ul role="list" className="list-disc space-y-2 py-2 pl-4 text-base">
@@ -152,7 +237,6 @@ const Product = () => {
                     </li>
                   </ul>
                 </div>
-               
               </div>
 
                   <div className="p-2 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-2">
@@ -178,43 +262,6 @@ const Product = () => {
                   <p>
                   Machine-wash
                   </p>
-                </div>
-                <h2 className="text-base mt-3 font-bold my-1 text-gray-900">Specifications</h2>
-                <div className="my-1">
-                  <p className=" text-xs py-1 text-gray-700">
-                  Sleeve Length
-                  </p>
-                  <p>
-                    Long Sleeves
-                  </p>
-                  <hr className="h-0.5  w-[23%] bg-gray-400 " />
-                </div>
-                <div className="my-1">
-                  <p className="text-xs py-1 text-gray-700">
-                  Collar
-                  </p>
-                  <p>
-                    Mock Collar
-                  </p>
-                  <hr className="h-0.5 w-[23%] bg-gray-400" />
-                </div>
-                <div className="my-1">
-                  <p className="text-xs py-1 text-gray-700">
-                  Length
-                  </p>
-                  <p>
-                    Regular
-                  </p>
-                  <hr className="h-0.5 w-[23%] bg-gray-400" />
-                </div>
-                <div className="my-1">
-                  <p className="text-xs py-1 text-gray-700">
-                 Lining Fabric
-                  </p>
-                  <p>
-                    Polyester  
-                  </p>
-                  <hr className="h-0.5 w-[23%] bg-gray-400" />
                 </div>
               </div>
             </div>
