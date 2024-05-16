@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../../Context/ShopContext";
-
+import { toast } from 'react-hot-toast'
 
 const CartItemsList = () => {
   const { getTotalCartAmounts, all_product, cartItems, removeFromCart ,addToCart,getTotalCartItems,getOldCartAmounts } =
@@ -14,6 +14,7 @@ const CartItemsList = () => {
                 <button
                   onClick={() => {
                     removeFromCart(e.id);
+                    toast.error("Removed From Cart")
                   }}
                   className="float-right px-4 pt-1 text-2xl text-black hover:text-gray-600"
                 >

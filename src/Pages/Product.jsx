@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import Footer from '../Component/Footer/Footer'
 import { FaStar } from "react-icons/fa"
 import { useState,useEffect } from 'react'
+import { toast } from 'react-hot-toast'
 const Product = () => {
   // const {all_product}= useContext(ShopContext);
   const {addToCart} = useContext(ShopContext);
@@ -25,6 +26,9 @@ const Product = () => {
  .then((data)=>{setAllProducts(data)})
   },[])
   console.log(all_products)
+
+
+
   // console.log(productId)
   // console.log(all_products[0].name);
   // const product = all_product.find((e)=> e.id ===Number(productId));
@@ -125,7 +129,7 @@ const Product = () => {
               
                 <div className="mt-10">
 
-                  <button onClick={()=>{addToCart(object.id)}}
+                  <button onClick={()=>{addToCart(object.id), toast.success("Added To Cart")}}
                   // type="submit"
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-slate-600 hover:bg-pink-500 px-8 py-3 text-base font-medium text-white "
                 >

@@ -1,7 +1,7 @@
 import React, { useContext,useEffect,useState,useCallback } from 'react'
 import Footer from '../Component/Footer/Footer'
 import Item from '../Component/Item/Item'
-
+import toast from 'react-hot-toast'
 
 
 
@@ -46,40 +46,44 @@ if(highPrice){
      <img src={props.banner} alt="hell"/>
      <div className='flex mt-3 pt-2 pl-2 flex-row-reverse  border-black border rounded-lg p-2 '>
 
-     <button className=' hover:text-gray-500 cursor-pointer font-bold px-2 border-solid border-4 border-sky-400 rounded-2xl ' onClick={()=>{setdateProduct((prev)=>!prev)
+     <button className=' hover:text-gray-500 cursor-pointer font-bold px-2 border-solid border-2 border-gray-500' onClick={()=>{setdateProduct((prev)=>!prev)
    sethighPrice(false)
    setlowPrice(false) 
-    setsliceProduct(false)}}  >
+    setsliceProduct(false)
+    toast.success("Newest First")}}  >
      Newest First  {dateProduct === true ? (
                           <hr className="w-{100%} h-1  rounded-lg bg-black" />
                           ) : (
                           <></>
                         )}</button>
 
-     <button className=' hover:text-blue-800 font-bold px-2 border-solid border-4 border-sky-400 rounded-2xl mr-1 cursor-pointer' onClick={()=>{setsliceProduct((prev)=>!prev)
+     <button className=' hover:text-blue-800 font-bold px-2 border-solid border-2 border-gray-500  mr-1 cursor-pointer' onClick={()=>{setsliceProduct((prev)=>!prev)
     setlowPrice(false) 
     sethighPrice(false)
-    setdateProduct(false)}}  >
+    setdateProduct(false)
+    toast.success(" Sort By Popularity")}}  >
       Popularity {sliceProduct === true ? (
                           <hr className="w-{100%} h-1  rounded-lg bg-black " />
                           ) : (
                           <></>
                         )}</button>
 
-     <button className='px-4 hover:text-blue-800 font-bold border-solid border-4 border-sky-400 rounded-2xl mr-1 cursor-pointer' onClick={()=>{setlowPrice((prev)=>!prev)
+     <button className='px-4 hover:text-blue-800 font-bold border-solid border-2 border-gray-500 mr-1 cursor-pointer' onClick={()=>{setlowPrice((prev)=>!prev)
     sethighPrice(false)
     setsliceProduct(false)
-    setdateProduct(false)}} >
+    setdateProduct(false)
+    toast.success("High to Low")}} >
       Price -- High to Low{lowPrice === true ? (
                           <hr className="w-{100%} h-1  rounded-lg bg-black " />
                           ) : (
                           <></>
                         )}</button>
 
-     <button className=' hover:text-blue-800 font-bold px-2 border-solid border-4 cursor-pointer border-sky-400 rounded-2xl mr-1' onClick={()=>{sethighPrice((prev)=>!prev)
+     <button className=' hover:text-blue-800 font-bold px-2 border-solid border-2 border-gray-500 cursor-pointer mr-1' onClick={()=>{sethighPrice((prev)=>!prev)
     setlowPrice(false)
     setsliceProduct(false)
-    setdateProduct(false)}}  >
+    setdateProduct(false)
+    toast.success("Low To High")}}  >
       Price -- Low to High{highPrice === true ? (
                           <hr className="w-{100%} h-1  rounded-lg bg-black" />
                           ) : (
