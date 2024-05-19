@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaStar } from "react-icons/fa"
 const Item = (props) => {
   return (
-    <>
+    <> 
     <div className="bg-white ">
         <div className="mx-auto max-w-2xl px-4 py-4 sm:px-6 sm:py-8 lg:max-w-5xl lg:px-8">
           <div className=" grid grid-cols-1  gap-x-6 gap-y-10 ">

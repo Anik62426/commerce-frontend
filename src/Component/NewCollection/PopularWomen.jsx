@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 // import products from '../assets/new_collections'
 import { Link } from "react-router-dom";
+import Skeletons from "../Skeletons";
 
 export default function NewCollection() {
   const [new_collection, setnew_collection] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("https://ecommerce-backend-27wa.onrender.com/popularinwomen")
       .then((response) => response.json())
-      .then((data) => setnew_collection(data));
+      .then((data) => {setnew_collection(data)
+        setLoading(false);
+      });
   }, []);
   return (
     <div className="bg-white">
@@ -18,9 +22,10 @@ export default function NewCollection() {
         </h1>
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        { loading && <Skeletons cards = {4}/>}
           {new_collection.map((product) => (
             <div key={product.id} className="group relative">
-              <Link to={`/product/${product.id}`}>
+              <Link to={`/product/${product.id}`}>   
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 
                 <img

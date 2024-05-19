@@ -6,8 +6,11 @@ import Footer from '../Component/Footer/Footer'
 import { FaStar } from "react-icons/fa"
 import { useState,useEffect } from 'react'
 import { toast } from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 const Product = () => {
   // const {all_product}= useContext(ShopContext);
+
+  const navigate = useNavigate();
   const {addToCart} = useContext(ShopContext);
   console.log(addToCart)
   const {productId} = useParams();
@@ -38,6 +41,9 @@ const Product = () => {
       {all_products.map((object) => (
         <div key={object.id}>
           <div className=' flex items-center text-base text-gray-800 py-8 pl-10 gap-2 '>
+          <>
+          <button className=' border-2 bg-gray-600 text-white p-1 rounded-md border-gray-800' onClick={()=> navigate(-1)}>Go Back</button>
+          </> 
            Home / Shop / {object.category} / {object.name}
            </div>
            <div className="bg-white">
