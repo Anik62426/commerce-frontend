@@ -3,7 +3,7 @@ import { ShopContext } from "../../Context/ShopContext";
 import { toast } from 'react-hot-toast'
 
 const CartItemsList = () => {
-  const { getTotalCartAmounts, all_product, cartItems, removeFromCart ,addToCart,getTotalCartItems,getOldCartAmounts } =
+  const { getTotalCartAmounts, all_product, cartItems, removeFromCart ,addToCart,getTotalCartItems,getOldCartAmounts,getDiscountCartAmounts } =
     useContext(ShopContext);
   return (
     <div>
@@ -69,20 +69,64 @@ const CartItemsList = () => {
           );
         } else null;
       })}
-      <div className="relative">
-      <div className="flex fixed rounded-lg top-11 mt-8 right-0  flex-col w-[33%] mr-2 gap-3 pr-20 border-2 p-2 bg-slate-100  float-right font-bold  ">
-        <p className="text-xs"> PRICE DETAILS ({getTotalCartItems()} items)</p>
-        
-        <p className="text-sm pl-1">Total MRP <span className="  pl-20">₹{getOldCartAmounts()} </span>  </p>
-        <p className="text-sm pl-1">Platform Fee <span className="pl-16 text-green-500 ">FREE</span> </p>
-        <p className="text-sm pl-1 ">Shipping Fee <span className="pl-16 text-green-500 ">FREE</span> </p>
-        <p className="text-sm pl-1 ">Sub-Total <span className="pl-5 ">₹{getTotalCartAmounts()} </span>  <span className="pl-5 line-through">₹{getOldCartAmounts()}</span>  </p>
-        <hr className="w-[120%] mt-1 m-auto h-1 rounded-lg bg-gray-600 border-0 " />
-        <h3 className="text-sm p-1 pt-3 pb-3">Total Amount <span className="pl-12 font-bold ">₹{getTotalCartAmounts()} </span> </h3>
-         <button className="flex w-[120%] font-bold justify-center tracking-wide border-pink-600 border-2 p-2 bg-pink-600 text-white">PLACE ORDER</button>
-      
-      </div>
-      </div>
+       
+       <div className="mt-8 fixed top-11 right-11 flex justify-end border-t border-gray-100 pt-8">
+          <div className=" w-[50vh] max-w-lg space-y-4 mr-12 ">
+            <dl className="space-y-0.5 text-sm text-gray-700">
+              <div className="flex justify-between">
+                <dt>Subtotal</dt>
+                <dd>₹{getOldCartAmounts()}</dd>
+              </div>
+
+              <div className="flex justify-between">
+                <dt>Tax</dt>
+                <dd>₹0 </dd>
+              </div>
+
+              <div className="flex justify-between">
+                <dt>Discount</dt>
+                <dd>-₹{getDiscountCartAmounts()}</dd>
+              </div>
+
+              <div className="flex justify-between !text-base font-medium">
+                <dt>Total</dt>
+                <dd>₹{getTotalCartAmounts()}</dd>
+              </div>
+            </dl>
+
+            <div className="flex justify-end">
+              <span
+                className="inline-flex items-center justify-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-indigo-700"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="-ms-1 me-1.5 h-4 w-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"
+                  />
+                </svg>
+
+                <p className="whitespace-nowrap text-xs">2 Discounts Applied</p>
+              </span>
+            </div>
+
+            <div className="flex justify-end">
+              <a
+                href="#"
+                className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+              >
+                Checkout
+              </a>
+            </div>
+          </div>
+        </div>
     </div>
   );
 };

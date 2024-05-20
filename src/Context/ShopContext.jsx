@@ -90,6 +90,17 @@ const ShopContextProvider = (props) =>{
         return totalsAmount;
     }
 
+    const getDiscountCartAmounts = () =>{
+        let totalsAmount = 0;
+        for(const item in cartItems){
+            if(cartItems[item]>0){
+                let itemInfo = all_product.find((product)=>product.id === Number(item))
+                totalsAmount += itemInfo.old_price*cartItems[item] - itemInfo.new_price*cartItems[item];
+            }
+        }
+        return totalsAmount;
+    }
+
     const getTotalCartItems = ()=>{
         let totalItem = 0;
         for(const item in cartItems){
@@ -100,7 +111,7 @@ const ShopContextProvider = (props) =>{
         return totalItem;
     }
    
-    const contextValue = { all_product,cartItems,addToCart,removeFromCart,getTotalCartAmounts,getTotalCartItems,getOldCartAmounts };
+    const contextValue = { all_product,cartItems,addToCart,removeFromCart,getTotalCartAmounts,getTotalCartItems,getOldCartAmounts,getDiscountCartAmounts };
 
     
     return(
