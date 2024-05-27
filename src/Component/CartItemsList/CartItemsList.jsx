@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../../Context/ShopContext";
 import { toast } from 'react-hot-toast'
+import { ImCross } from "react-icons/im";
 
 const CartItemsList = () => {
   const { getTotalCartAmounts, all_product, cartItems, removeFromCart ,addToCart,getTotalCartItems,getOldCartAmounts,getDiscountCartAmounts } =
@@ -10,15 +11,15 @@ const CartItemsList = () => {
       {all_product.map((e) => {
         if (cartItems[e.id] > 0) {
           return (
-              <div className=" w-[60%] ml-16 mt-3 rounded border">
+              <div className=" w-[60%] ml-16 mt-3 rounded border shadow-xl ">
                 <button
                   onClick={() => {
                     removeFromCart(e.id);
                     toast.error("Removed From Cart")
                   }}
-                  className="float-right px-4 pt-1 text-2xl text-black hover:text-gray-600"
+                  className="float-right px-6 pt-3 text-2xl text-black hover:text-gray-600"
                 >
-                  X
+                  <ImCross />
                 </button>
                 <div className="flex ">
                   <div className=" ">
@@ -38,7 +39,7 @@ const CartItemsList = () => {
                   onClick={() => {
                     removeFromCart(e.id);
                   }}
-                  className=" text-2xl text-black hover:text-gray-600"
+                  className=" text-3xl text-black hover:text-gray-600"
                 >
                   -
                 </button>
@@ -47,7 +48,7 @@ const CartItemsList = () => {
                   onClick={() => {
                     addToCart(e.id);
                   }}
-                  className="text-2xl text-black hover:text-gray-600"
+                  className="text-3xl text-black hover:text-gray-600"
                 >
                   +
                 </button>
@@ -57,10 +58,10 @@ const CartItemsList = () => {
                       <p className="pt-2 line-through text-gray-500 text-sm">
                         ₹{e.old_price}
                       </p>
-                      <p className="pt-2 text-sm text-pink-400">64% OFF</p>
+                      <p className="pt-2 text-sm text-green-400">64% OFF</p>
                     </div>
-                    <p className=" pt-2 text-sm ">
-                      Total ₹ {e.new_price * cartItems[e.id]}
+                    <p className=" pt-2 text-sm font-bold ">
+                      Total ₹  {e.new_price * cartItems[e.id]}
                     </p>
                   </div>
                 </div>
@@ -75,28 +76,28 @@ const CartItemsList = () => {
             <dl className="space-y-0.5 text-sm text-gray-700">
               <div className="flex justify-between">
                 <dt>Subtotal</dt>
-                <dd>₹{getOldCartAmounts()}</dd>
+                <dd>₹ {getOldCartAmounts()}</dd>
               </div>
 
               <div className="flex justify-between">
                 <dt>Tax</dt>
-                <dd>₹0 </dd>
+                <dd>₹ 0 </dd>
               </div>
 
               <div className="flex justify-between">
                 <dt>Discount</dt>
-                <dd>-₹{getDiscountCartAmounts()}</dd>
+                <dd>-₹ {getDiscountCartAmounts()}</dd>
               </div>
 
-              <div className="flex justify-between !text-base font-medium">
+              <div className="flex justify-between text-base font-bold ">
                 <dt>Total</dt>
-                <dd>₹{getTotalCartAmounts()}</dd>
+                <dd>₹ {getTotalCartAmounts()}</dd>
               </div>
             </dl>
 
             <div className="flex justify-end">
               <span
-                className="inline-flex items-center justify-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-indigo-700"
+                className="inline-flex items-center justify-center rounded-full bg-green-100 px-2.5 py-0.5 text-green-700"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -113,14 +114,14 @@ const CartItemsList = () => {
                   />
                 </svg>
 
-                <p className="whitespace-nowrap text-xs">2 Discounts Applied</p>
+                <p className="whitespace-nowrap text-xs ">2 Discounts Applied</p>
               </span>
             </div>
 
             <div className="flex justify-end">
               <a
                 href="#"
-                className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+                className="block rounded bg-gray-700 px-28 py-3 text-sm text-gray-100 transition hover:bg-gray-800"
               >
                 Checkout
               </a>
