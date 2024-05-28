@@ -29,8 +29,8 @@ const Item = (props) => {
                     </h2>
                     </div>
                     <div className=' flex gap-2'>
-                    <p className="mt-1 text-sm text-gray-500">₹{props.new_price}</p>
-                    <p className="mt-1 text-sm text-gray-500 line-through">₹{props.old_price}</p>
+                    <p className="mt-1 text-sm text-black-500 font-bold">₹ {props.new_price}</p>
+                    <p className="mt-1 text-sm text-gray-500 line-through">₹ {props.old_price}</p>
                     </div>
                 </div>
               </div>

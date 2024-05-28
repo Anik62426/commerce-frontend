@@ -5,6 +5,7 @@ import myntra_logo from "../assets/myntra_logo.png";
 import cart_icon from "../assets/cart_icon.png";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
+import { PiShoppingCartLight } from "react-icons/pi";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -125,16 +126,11 @@ export default function Navbar() {
                 {/* Profile dropdown */}
 
                 <div className="relative ml-3">
-                  <div className="relative flex p-1  bg-gray-400 text-sm rounded-md ">
+                  <div className="relative flex p-1  text-4xl  bg-gray-400  rounded-lg ">
                     <Link to="/cart">
-                      <img
-                        className="h-8 w-8"
-                        src={cart_icon}
-                        alt="cart"
-                      />
-                      
+                    <PiShoppingCartLight />
                     </Link>
-                    <div className="w-6 h-6 flex justify-center items-center -mt-3 -ml-15 rounded-xl text-sm bg-blue-500 text-white">
+                    <div className="w-6 h-6 flex justify-center items-center -mt-3 -ml-6 rounded-xl text-sm font bg-pink-500 text-white animate-bounce">
                       {getTotalCartItems()}
                     </div>
                   </div>
