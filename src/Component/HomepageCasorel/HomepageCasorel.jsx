@@ -15,7 +15,7 @@ function HomepageCasorel() {
   return (
     <>
 
-        <div>
+        <div className="max-w-[1000px] shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] ml-32 mt-6">
         <AliceCarousel
         items={items}
         disableButtonsControls
@@ -25,8 +25,8 @@ function HomepageCasorel() {
         animationDuration={1000}
         animationType="fadeout"
         // touchTracking={false}
-        // mouseTracking
-        // disableDotsControls
+        // mouseTracking 
+        disableDotsControls
         
     />
 

@@ -18,7 +18,7 @@ export default function Navbar() {
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 drop-shadow-2xl bg-white">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -43,13 +43,13 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4 ">
                     <div
-                      className=" text-gray-300  hover:text-white
-                     py-2 text-base font-medium"
+                      className=" text-black hover:text-gray-600
+                     py-2 text-base font-semibold "
                     >
                       <p onClick={() => setMenu("myntara")}>
                         <Link to="/">Myntara</Link>{" "}
                         {menu === "myntara" ? (
-                          <hr className="w-{80%} h-1 rounded-lg bg-blue-500 border-0 " />
+                          <hr className="w-{80%} h-1 rounded-lg bg-slate-900 border-0 " />
                         ) : (
                           <></>
                         )}{" "}
@@ -60,13 +60,13 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4 ">
                     <div
-                      className="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white
-                    block rounded-md px-3 py-2 text-base "
+                      className=" text-black hover:text-gray-600 
+                    block rounded-md px-3 py-2 text-base font-bold "
                     >
                       <p onClick={() => setMenu("men")}>
                         <Link to="/men">MENS</Link>{" "}
                         {menu === "men" ? (
-                          <hr className="w-{80%} h-1 rounded-lg bg-blue-500 border-0 " />
+                          <hr className="w-{80%} h-1 rounded-lg bg-slate-900  border-0 " />
                         ) : (
                           <></>
                         )}{" "}
@@ -77,13 +77,13 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4 ">
                     <div
-                      className="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white
-                    block rounded-md px-3 py-2 text-base"
+                      className="text-gray-900 font-semibold hover:text-gray-600
+                    block rounded-md px-3 py-2 text-base "
                     >
                       <p onClick={() => setMenu("women")}>
                         <Link to="/women">WOMENS</Link>{" "}
                         {menu === "women" ? (
-                          <hr className="w-{80%} h-1 rounded-lg bg-blue-500 border-0 " />
+                          <hr className="w-{80%} h-1 rounded-lg bg-slate-900  border-0 " />
                         ) : (
                           <></>
                         )}
@@ -94,13 +94,13 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4 ">
                     <div
-                      className="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white
+                      className="text-gray-900 font-semibold hover:text-gray-600
                     block rounded-md px-3 py-2 text-base "
                     >
                       <p onClick={() => setMenu("kid")}>
                         <Link to="/kid">KIDS</Link>{" "}
                         {menu === "kid" ? (
-                          <hr className="w-{80%} h-1 rounded-lg bg-blue-500 border-0 " />
+                          <hr className="w-{80%} h-1 rounded-lg bg-slate-900  border-0 " />
                         ) : (
                           <></>
                         )}
@@ -115,7 +115,7 @@ export default function Navbar() {
               :<Link to="/login">
                   <button
                     type="button"
-                    className="relative rounded-full bg-gray-200 px-5 py-2 font-bold text-black hover:bg-black hover:text-white "
+                    className="relative rounded-full bg-black px-5 py-2 font-bold text-white hover:bg-white border-2 hover:text-black "
                   >
                     <span className="absolute -inset-1.5" />
                     <p>LOGIN</p>
@@ -125,12 +125,12 @@ export default function Navbar() {
 
                 {/* Profile dropdown */}
 
-                <div className="relative ml-3">
-                  <div className="relative flex p-1  text-4xl  bg-gray-400  rounded-lg ">
+                <div className="relative ml-3 ">
+                  <div className="relative flex p-1  text-4xl  rounded-lg ">
                     <Link to="/cart">
                     <PiShoppingCartLight />
                     </Link>
-                    <div className="w-6 h-6 flex justify-center items-center -mt-3 -ml-6 rounded-xl text-sm font bg-pink-500 text-white animate-bounce">
+                    <div className="w-5 h-6 flex justify-center items-center -mt-3 -ml-7 rounded-xl text-sm font bg-black text-white animate-bounce">
                       {getTotalCartItems()}
                     </div>
                   </div>

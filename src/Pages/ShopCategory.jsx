@@ -49,7 +49,7 @@ if(highPrice){
     <div>
      <img src={props.banner} loading='lazy' className=' cursor-pointer' alt="hell" onClick={()=> navigate("/")}/>
      <div className='flex mt-3 pt-2 pl-2 flex-row-reverse  border-black border rounded-lg p-2 '>
-
+      
      <button className='border-2 bg-gray-700 text-white p-1 rounded-md border-gray-800' onClick={()=>{setdateProduct((prev)=>!prev)
    sethighPrice(false)
    setlowPrice(false) 

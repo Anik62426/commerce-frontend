@@ -11,10 +11,13 @@ const CartItemsList = () => {
       {all_product.map((e) => {
         if (cartItems[e.id] > 0) {
           return (
+            
+            <div key={e.id}> 
+
               <div className=" w-[60%] ml-16 mt-3 rounded border shadow-xl ">
                 <button
                   onClick={() => {
-                    removeFromCart(e.id);
+                    removeFromCart(e?.id);
                     toast.error("Removed From Cart")
                   }}
                   className="float-right px-6 pt-3 text-2xl text-black hover:text-gray-600"
@@ -24,7 +27,7 @@ const CartItemsList = () => {
                 <div className="flex ">
                   <div className=" ">
                     <img
-                      src={e.image}
+                      src={e?.image}
                       alt="image"
                       className=" w-24  m-2 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
                     />
@@ -32,7 +35,7 @@ const CartItemsList = () => {
 
                   <div className=" pl-5 ">
                     <p className=" text-sm font-bold  pt-2 text-gray-900">
-                      {e.name}
+                      {e?.name}
                     </p>
                     <div className="flex gap-2 items-center"> 
                  <button
@@ -46,7 +49,7 @@ const CartItemsList = () => {
                 <p className=" text-sm p-0.5 rounded-md border-2 border-gray-500 ">Qty : {cartItems[e.id]}</p>
                <button
                   onClick={() => {
-                    addToCart(e.id);
+                    addToCart(e?.id);
                   }}
                   className="text-3xl text-black hover:text-gray-600"
                 >
@@ -54,19 +57,19 @@ const CartItemsList = () => {
                 </button>
                     </div>
                     <div className="flex gap-4">
-                      <p className="pt-2 text-sm">₹{e.new_price}</p>
+                      <p className="pt-2 text-sm">₹{e?.new_price}</p>
                       <p className="pt-2 line-through text-gray-500 text-sm">
-                        ₹{e.old_price}
+                        ₹{e?.old_price}
                       </p>
                       <p className="pt-2 text-sm text-green-400">64% OFF</p>
                     </div>
                     <p className=" pt-2 text-sm font-bold ">
-                      Total ₹  {e.new_price * cartItems[e.id]}
+                      Total ₹  {e?.new_price * cartItems[e.id]}
                     </p>
                   </div>
                 </div>
               </div>
-           
+              </div>
           );
         } else null;
       })}

@@ -46,7 +46,7 @@ const ShopContextProvider = (props) =>{
                 },
                 body:JSON.stringify({"itemId":itemId}),
             })
-            .then((response)=>response.json())
+            .then((response)=> response.json())
             .then((data)=>console.log(data));
         }
     }
@@ -62,43 +62,61 @@ const ShopContextProvider = (props) =>{
                 },
                 body:JSON.stringify({"itemId":itemId}),
             })
-            .then((response)=>response.json())
+            .then((response)=> response.json())
             .then((data)=>console.log(data));
         }
     }
 
 
     const getTotalCartAmounts = () =>{
-        let totalAmount = 0;
-        for(const item in cartItems){
-            if(cartItems[item]>0){
-                let itemInfo = all_product.find((product)=>product.id === Number(item))
-                totalAmount += itemInfo.new_price*cartItems[item];
+
+        let totalsAmounts = 0;
+        for (const item in cartItems) {
+          if (cartItems[item] > 0) {
+            const itemInfo = all_product.find((product) => product.id === Number(item));
+            if (itemInfo) {
+              totalsAmounts += itemInfo.new_price * cartItems[item];
+            } else {
+              console.warn(`Product with ID ${Number(item)} not found`);
             }
+          }
         }
-        return totalAmount;
+        return totalsAmounts;
+       
     }
 
     const getOldCartAmounts = () =>{
-        let totalsAmount = 0;
-        for(const item in cartItems){
-            if(cartItems[item]>0){
-                let itemInfo = all_product.find((product)=>product.id === Number(item))
-                totalsAmount += itemInfo.old_price*cartItems[item];
+      
+        let totalsAmounts = 0;
+        for (const item in cartItems) {
+          if (cartItems[item] > 0) {
+            const itemInfo = all_product.find((product) => product.id === Number(item));
+            if (itemInfo) {
+              totalsAmounts += itemInfo.old_price * cartItems[item];
+            } else {
+              console.warn(`Product with ID ${Number(item)} not found`);
             }
+          }
         }
-        return totalsAmount;
+        return totalsAmounts;
+
     }
 
     const getDiscountCartAmounts = () =>{
-        let totalsAmount = 0;
-        for(const item in cartItems){
-            if(cartItems[item]>0){
-                let itemInfo = all_product.find((product)=>product.id === Number(item))
-                totalsAmount += itemInfo.old_price*cartItems[item] - itemInfo.new_price*cartItems[item];
+        let totalsAmounts = 0;
+        for (const item in cartItems) {
+          if (cartItems[item] > 0) {
+            const itemInfo = all_product.find((product) => product.id === Number(item));
+            if (itemInfo) {
+                totalsAmounts += itemInfo.old_price*cartItems[item] - itemInfo.new_price*cartItems[item];
+            } else {
+              console.warn(`Product with ID ${Number(item)} not found`);
             }
+          }
         }
-        return totalsAmount;
+        return totalsAmounts;
+
+       
     }
 
     const getTotalCartItems = ()=>{
@@ -108,6 +126,7 @@ const ShopContextProvider = (props) =>{
                 totalItem+= cartItems[item];
             }
         }
+        console.log(totalItem)
         return totalItem;
     }
    
